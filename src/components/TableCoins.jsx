@@ -1,5 +1,7 @@
 import React from 'react'
+import CoinRow from './CoinRow'
 
+const titles = ["#","Coin","Price","Price change","22h volume"]
 export default function TableCoins({coins}) {
     console.log(coins)
 
@@ -10,14 +12,15 @@ export default function TableCoins({coins}) {
         <div className="overflow-hidden">
           <table className="min-w-full text-left text-sm font-light">
             <thead className="border-b font-medium bg-neutral-800 text-neutral-50 ">
-              <tr className='bg-neutral-800 font-ligth'><th scope="col" class="px-6 py-4">coins</th></tr>
+              <tr className='bg-neutral-800 font-ligth'>{
+                titles.map( (title,index) => (
+                  <td scope="col" key={index} className=" px-6 py-2">{title}</td>
+                ))}</tr>
               </thead>
     <tbody >
-        {coins.map((coin) => ( <tr key={coin.id} 
-        className='border-b border-neutral-700 bg-neutral-800 text-neutral-50 dark:border-neutral-600 dark:bg-neutral-700
-        hover:bg-red-500'>
-            <td className='whitespace-nowrap px-6 py-4 '>{coin.name}</td>
-            </tr>)
+        {coins.map((coin,index) => ( 
+          <CoinRow coin={coin} key={index} index={index+1}/>
+          )
         )}        
       </tbody>
         </table>
