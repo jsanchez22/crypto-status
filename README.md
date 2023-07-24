@@ -18,6 +18,7 @@ La aplicación presenta una interfaz amigable que permite a los usuarios explora
 - React
 - HTML
 - CSS
+- Tailwind
 - API coingecko
 
 ## Instalación
