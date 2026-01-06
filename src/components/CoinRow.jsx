@@ -12,7 +12,7 @@ function ColorCoin(percentage){
 export default function CoinRow({coin,index}) {
     //const priceChangePercentage = coin.price_change_percentage_24h.toFixed(2);
     const priceChangeNumber = Number(coin.price_change_percentage_24h ?? 0);
-    const priceChangeFormatted = priceChangeNumber.toFixed(2);
+    const priceChangeFormatted = priceChangeNumber.toFixed(2); 
 
 
   return (
