@@ -1,7 +1,7 @@
 import React from 'react'
 import CoinRow from './CoinRow'
 
-const titles = ["#","Coin","Price","Price change","22h volume"]
+const titles = ["#","Coin","Price","Price change","24h volume"]
 export default function TableCoins({coins}) {
     
   return (
