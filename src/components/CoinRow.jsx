@@ -11,8 +11,10 @@ function ColorCoin(percentage){
 }
 export default function CoinRow({coin,index}) {
     //const priceChangePercentage = coin.price_change_percentage_24h.toFixed(2);
-    const priceChangeNumber = Number(coin.price_change_percentage_24h ?? 0);
-    const priceChangeFormatted = priceChangeNumber.toFixed(2); 
+    const rawPercentage = coin.price_change_percentage_24h;
+    const safePercentage = typeof rawPercentage === "number" ? rawPercentage : 0;
+    const formattedPercentage = safePercentage.toFixed(2);
+
 
 
   return (
@@ -23,8 +25,8 @@ export default function CoinRow({coin,index}) {
             <img className="h-5 mr-2" src={coin.image}></img>{coin.name}
             </td>
             <td className='whitespace-nowrap px-6 py-4 '>{coin.current_price}</td>
-            <td className={`whitespace-nowrap px-6 py-4 ${ColorCoin(priceChangeNumber)}`} >
-                {priceChangeFormatted} %
+             <td className={`px-6 py-4 ${ColorCoin(safePercentage)}`}>
+                {formattedPercentage} %
             </td>
             <td className='whitespace-nowrap px-6 py-4 '>{coin.total_volume}</td>
             </tr>
