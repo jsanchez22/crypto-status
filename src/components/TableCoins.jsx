@@ -3,7 +3,10 @@ import CoinRow from './CoinRow'
 
 const titles = ["#","Coin","Price","Price change","22h volume"]
 export default function TableCoins({coins}) {
-    console.log(coins)
+    console.log(
+  coins.find(c => c?.price_change_percentage_24h === null)
+);
+
 
   return (
     <div className="flex flex-col m-3">
